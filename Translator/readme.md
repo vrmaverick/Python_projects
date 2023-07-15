@@ -5,12 +5,10 @@ This Python script allows you to translate text using various languages.
 ## Usage
 
 1. Make sure you have installed the required dependencies. You can install them using the following command:
-<code>
 ```bash
 pip install translate
 Run the script translator.py and follow the prompts.
 ```
-</code>
 
 python translator.py   
 Enter the path to the text file (.txt) you want to translate.
