@@ -1,5 +1,6 @@
 import requests
 import hashlib
+import PyPDF2
 
 def request_api(query):
     url = 'https://api.pwnedpasswords.com/range/' + query
@@ -26,7 +27,7 @@ def convert_sa1(Raw_Password):
     response = request_api(head)  # Will return all the hash that matches first 5 chars of the 
     
     return count(response, tail)  # Check the remaining and return count
-def main(password):
+def printing(password):
     breach_count = convert_sa1(password)
 
     if breach_count != 0:
@@ -35,7 +36,34 @@ def main(password):
     else:
         print(f"The password '{password}'has not been found Please carry on ")
 
+def main():
 
-password = input("Enter the password you wish to check for : ")
-main(password)
+    while True:
+
+        try:
+            select = int(input("Do you want to enter in Terminal or read from a text file?\n Enter 1 for terminal\n Enter 2 for text file:\n Enter 3 to Exit : "))
+
+            if select == 1:
+                password = input("Enter the password you wish to check for: ")
+                printing(password)
+
+            elif select == 2:
+                path = input("Enter full path of the file: ")
+
+                with open(path, "r") as filee:
+                    password = filee.read().strip()
+
+                printing(password)
+
+            elif select == 3:
+                exit()
+                
+            else:
+                print("Enter a valid option (1 or 2)")
+
+        except ValueError:
+            print("Enter a valid numeric option")
+
+if __name__ == '__main__':
+    main()
 
