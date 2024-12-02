@@ -3,3 +3,5 @@ It makes use of python and pypdf to library , currently the program supports 2 f
 
 1) Marksheet + transcript merging
 2) LOR's splitting 
+
+# Store the files in imp folder as seen in the repository before executing the program
